@@ -1,0 +1,58 @@
+body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.heading
+{
+    text-align: center;     
+}
+span
+{
+    display:flex;
+}
+img
+{
+    border-radius:15px;
+}
+.new
+{
+    border-radius:15px;
+    background-color:white;
+    box-shadow:5px 5px 5px grey;
+    padding-bottom:10px;
+}
+.container 
+{
+    display: inline-block;
+    align-items: center;    
+    margin-top: 15px;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+h5
+{
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important; 
+    word-break: break-word !important;    
+    color:black;
+    background-color:orange;
+    border-radius:5px;
+    padding:15px;
+    font-family: 'Dosis', sans-serif;
+    font-size:16px;
+}
+
+p
+{
+    padding: 5px;
+    padding-left:10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: fit-content;   
+}
