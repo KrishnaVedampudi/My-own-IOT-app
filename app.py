@@ -36,7 +36,8 @@ def check_detection():
     client_run = connect()    
     client_run.loop_start()  
     time.sleep(1)  
-    return render_template('index.html', status=int(detection))
+    status = int(detection)
+    return render_template('index.html', status)
     
 
 if __name__ == "__main__":
