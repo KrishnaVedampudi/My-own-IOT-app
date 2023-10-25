@@ -48,4 +48,4 @@ def get_status():  # Renamed the function to 'get_status'
 if __name__ == "__main__":
     client = connect()
     client.loop_start()
-    app.run(debug=True)
+    app.run(debug=True) 
