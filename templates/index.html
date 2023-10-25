@@ -59,19 +59,26 @@
     </center>
 
     <script>
+        function updateImage() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    var newStatus = response.status;
+                    if (newStatus == 0) {
+                        document.getElementById('change').src = "../static/IMAGES-5.png";
+                    } else if (newStatus == 1) {
+                        document.getElementById('change').src = "../static/IMAGES-4.png";
+                    }
+                }
+            };
+            xhr.open("GET", "/get_status", true);
+            xhr.send();
+        }
 
-        var status = "{{ status }}";
-        console.log(status);
-        if (status == 0)
-        {
-            document.getElementById('change').src= "../static/IMAGES-5.png";
-        }
-        if (status == 1)
-        {
-            document.getElementById('change').src= "../static/IMAGES-4.png";
-        }
+        // Call the updateImage function at regular intervals
+        setInterval(updateImage, 1000); // Adjust the interval time as needed
     </script>
 </body>
-
 </html>
 
