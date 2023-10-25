@@ -35,10 +35,11 @@ def on_message(client, userdata, msg):
     detection = int(msg.payload.decode())
     print("Detection:", detection)
 
-@app.route('/')
+@app.route('/get_status', methods=['GET'])
 def index():
     global detection
-    return render_template('index.html', status=detection)
+    status = detection
+    return jsonify({'status': status})
 
 if __name__ == "__main__":
     client = connect()
