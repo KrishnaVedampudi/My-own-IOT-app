@@ -37,7 +37,7 @@ def on_message(client, userdata, msg):
 
 @app.route('/')
 def index():
-    return render_template('your_html_file.html')  # Replace 'your_html_file.html' with the actual name of your HTML file
+    return render_template('index.html')  # Replace 'your_html_file.html' with the actual name of your HTML file
 
 
 @app.route('/get_status', methods=['GET'])
