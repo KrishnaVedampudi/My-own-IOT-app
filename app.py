@@ -35,6 +35,11 @@ def on_message(client, userdata, msg):
     detection = int(msg.payload.decode())
     print("Detection:", detection)
 
+@app.route('/')
+def index():
+    return render_template('your_html_file.html')  # Replace 'your_html_file.html' with the actual name of your HTML file
+
+
 @app.route('/get_status', methods=['GET'])
 def index():
     global detection
