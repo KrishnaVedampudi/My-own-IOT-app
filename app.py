@@ -37,10 +37,10 @@ def on_message(client, userdata, msg):
 
 @app.route('/')
 def index():
-    return render_template('index.html')  # Replace 'your_html_file.html' with the actual name of your HTML file
+    return render_template('index.html') 
 
 @app.route('/get_status', methods=['GET'])
-def get_status():  # Renamed the function to 'get_status'
+def get_status(): 
     global detection
     status = int(detection)
     return render_template('index.html', status)
