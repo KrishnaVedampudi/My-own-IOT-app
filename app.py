@@ -42,8 +42,8 @@ def index():
 @app.route('/get_status', methods=['GET'])
 def get_status():  # Renamed the function to 'get_status'
     global detection
-    status = detection
-    return jsonify({'status': status})
+    status = int(detection)
+    return render_template('index.html', status)
 
 if __name__ == "__main__":
     client = connect()
