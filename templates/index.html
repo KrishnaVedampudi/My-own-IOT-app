@@ -59,25 +59,33 @@
     </center>
 
     <script>
-        function updateImage() {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
-                    var newStatus = response.status;
-                    if (newStatus == 0) {
-                        document.getElementById('change').src = "../static/IMAGES-5.png";
-                    } else if (newStatus == 1) {
-                        document.getElementById('change').src = "../static/IMAGES-4.png";
+        function updateStatus() {
+            $.ajax({
+                url: "/get_status",
+                type: "GET",
+                success: function(data) {
+                    $("#status").text("Status: " + data.status);
+                    if (data.status == 0) {
+                        $("#statusImage").attr("src", "{{ url_for('static', filename='IMAGES-4.png') }}");
+                    } else if (data.status == 1) {
+                        $("#statusImage").attr("src", "{{ url_for('static', filename='IMAGES-5.png') }}");
+                    } else {
+                        console.log("Invalid status received");
                     }
+                },
+                error: function(error) {
+                    console.log("Error fetching status:", error);
                 }
-            };
-            xhr.open("GET", "/get_status", true);
-            xhr.send();
+            });
         }
 
-        // Call the updateImage function at regular intervals
-        setInterval(updateImage, 1000); // Adjust the interval time as needed
+      
+        $(document).ready(function() {
+            updateStatus();
+        });
+
+       
+        setInterval(updateStatus, 500); 
     </script>
 </body>
 </html>
